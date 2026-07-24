@@ -143,7 +143,6 @@
   ul.blocklist li::before{content:'—'; position:absolute; left:0; color:var(--text-muted);}
   ul.blocklist.risk li::before{content:'!'; color:var(--brick); font-family:var(--mono); font-weight:700;}
 
-  .refs{margin-top:14px; font-size:12.5px; color:var(--text-muted); font-family:var(--mono); line-height:1.7;}
 
   /* ---------- FOOTER ---------- */
   footer{padding:60px 0 80px;}
@@ -154,8 +153,35 @@
   .footer-note{margin-top:26px; font-size:12.5px; color:var(--text-muted); max-width:50ch;}
   .back-to-top{font-family:var(--mono); font-size:12px; color:var(--text-muted);}
 
+
+  /* ---------- TAGS ---------- */
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:0.03em;
+    color:var(--text-muted); border:1px solid var(--rule-strong);
+    padding:5px 11px; border-radius:20px; background:var(--panel);
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+  .tag:hover{color:var(--teal); border-color:var(--teal);}
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(8px); transition:opacity 220ms ease-out, transform 220ms ease-out;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+
+  /* ---------- HOVER ELEVATION ---------- */
+  .results-row{transition: background-color 150ms ease, box-shadow 150ms ease;}
+  .results-row:hover{background-color: rgba(232,230,221,0.035); box-shadow: inset 3px 0 0 var(--teal);}
+  figure{transition: transform 220ms ease, box-shadow 220ms ease; border-radius:2px;}
+  figure:hover{transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.38);}
+
+  /* ---------- NAV ACTIVE STATE ---------- */
+  .navlinks a{transition: color 150ms ease;}
+  .navlinks a.active{color:var(--teal);}
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .results-row, figure, .tag, .navlinks a{transition:none;}
   }
 </style>
 </head>
@@ -199,6 +225,12 @@
     </div>
     <h2 class="note-title">Housing types in the Netherlands: segment &amp; regional portfolio optimization</h2>
     <div class="note-byline">Group project (5 members) · March 2026 · Data: CBS / Kadaster, 1995Q1–2025Q4</div>
+    <div class="tags">
+      <span class="tag">Mean-Variance Optimization</span>
+      <span class="tag">Amihud Illiquidity</span>
+      <span class="tag">Stress Testing</span>
+      <span class="tag">Flood-Risk Overlay</span>
+    </div>
 
     <div class="note-framing">
       <p>We built a mean-variance framework for a Dutch institutional investor choosing between residential housing segments (terraced, corner, semi-detached, detached, apartment) and the twelve provinces plus Amsterdam — then asked whether the standard Markowitz output actually survives contact with illiquidity, a real crisis, and flood risk.</p>
@@ -238,6 +270,12 @@
     </div>
     <h2 class="note-title">Macro-adjusted value-momentum strategy with walk-forward analysis</h2>
     <div class="note-byline">Group 14, 6 members · March 2026 · Backtest: NL / FR / BE equities, July 1998 – May 2022</div>
+    <div class="tags">
+      <span class="tag">Factor Investing</span>
+      <span class="tag">Walk-Forward Validation</span>
+      <span class="tag">Volatility Targeting</span>
+      <span class="tag">Backtesting</span>
+    </div>
 
     <div class="note-framing">
       <p>A market-neutral long/short equity strategy combining Book-to-Market value and 11-month momentum signals, with two macro overlays — a regime tilt based on trailing HML performance, and continuous volatility scaling to a fixed target. Rebalanced monthly, self-financing, no net capital required.</p>
@@ -296,6 +334,12 @@
     </div>
     <h2 class="note-title">Replicating Fama-French: size, value, momentum and the five-factor model</h2>
     <div class="note-byline">Group 4.4, 5 members · Sample: 1965–2023 (708 months), extended through COVID-19</div>
+    <div class="tags">
+      <span class="tag">Fama-MacBeth</span>
+      <span class="tag">Asset Pricing</span>
+      <span class="tag">Momentum</span>
+      <span class="tag">Cross-Sectional Regression</span>
+    </div>
 
     <div class="note-framing">
       <p>We re-ran Fama &amp; French's (1996) 25 size/BE-ME portfolio sort and the Asness-Moskowitz-Pedersen (2013) value-momentum analysis on data through 2023 — nearly 30 years beyond the original studies — to see whether the classic results still hold, or whether they were an artifact of the sample period.</p>
@@ -331,6 +375,12 @@
     </div>
     <h2 class="note-title">Valuing ASML: a DCF and trading-multiples cross-check</h2>
     <div class="note-byline">KPMG-run valuation case · September 2025 · ASML Holding N.V., full three-statement model</div>
+    <div class="tags">
+      <span class="tag">DCF Valuation</span>
+      <span class="tag">WACC / CAPM</span>
+      <span class="tag">Trading Comps</span>
+      <span class="tag">Three-Statement Modeling</span>
+    </div>
 
     <div class="note-framing">
       <p>KPMG ran this as a standalone valuation case: build a full operating model for ASML from public disclosures, forecast it explicitly, and value it two independent ways. I modelled ASML's revenue bottom-up across its seven product lines — EUV, the three DUV lithography types, metrology, and installed-base service — before rolling everything into free cash flow and discounting it back at a CAPM-derived WACC.</p>
@@ -367,6 +417,12 @@
     </div>
     <h2 class="note-title">What drives virtual asset returns? A three-factor model for CS2 skins</h2>
     <div class="note-byline">Individual thesis · June 2026 · Supervisor: Dr. Roman Kräussl · Steam Community Market, 2013–2025</div>
+    <div class="tags">
+      <span class="tag">Fama-MacBeth</span>
+      <span class="tag">Factor Construction</span>
+      <span class="tag">Panel Data</span>
+      <span class="tag">Characteristics Regression</span>
+    </div>
 
     <div class="note-framing">
       <p>My Master's thesis asks whether Counter-Strike 2 weapon skins — a multi-billion-dollar market with no cash flows, no dividends, and a 15% transaction fee on every trade — behave like a normal asset class once you build a proper factor model for them. I constructed three Fama-French-style factors from scratch (a case-market factor, a rarity spread, and a liquidity spread) and estimated their risk prices with the Fama-MacBeth two-stage procedure, on more than 1.3 million skin-week observations.</p>
@@ -408,6 +464,12 @@
     </div>
     <h2 class="note-title">Bitcoin as digital gold: diversification across inflation regimes</h2>
     <div class="note-byline">Group thesis (3 members) · June 2025 · Supervisor: Danjun Xu · US weekly data, May 2015–May 2025</div>
+    <div class="tags">
+      <span class="tag">Portfolio Optimization</span>
+      <span class="tag">Sharpe-Ratio Testing</span>
+      <span class="tag">Robustness Checks</span>
+      <span class="tag">Python / Excel</span>
+    </div>
 
     <div class="note-framing">
       <p>My Bachelor's thesis, with two co-authors, tested Bitcoin's case as "digital gold" directly: does adding it to a traditional US portfolio actually help, and does that hold up separately in low- and high-inflation regimes? We built naive, minimum-variance, and maximum-Sharpe portfolios across equities, corporate bonds, and REITs — with and without Bitcoin — using ten years of weekly data split at the Fed's 2% inflation target.</p>
@@ -438,12 +500,11 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h3>Erik Weber</h3>
+        <h3>MSc. Erik Weber</h3>
         <div class="contact">
           <a href="mailto:erikweber03@gmail.com">erikweber03@gmail.com</a>
           <span>+31 681 381 125</span>
           <a href="https://www.linkedin.com/in/erikweber03/" target="_blank" rel="noopener">linkedin.com/in/erikweber03</a>
-          <span>MSc Finance (Asset Management) · University of Amsterdam</span>
         </div>
       </div>
       <div>
@@ -453,6 +514,53 @@
     <p class="footer-note">This page is a companion to my CV. Happy to share the full reports, code, or underlying data behind any of these six projects on request.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Scroll-triggered reveal, once per section ----------
+  var sections = document.querySelectorAll('section.note');
+  sections.forEach(function(s){ s.classList.add('reveal'); });
+
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    sections.forEach(function(s){ s.classList.add('in-view'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    sections.forEach(function(s){ revealObserver.observe(s); });
+  }
+
+  // ---------- Nav scroll-position indicator ----------
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.navlinks a[href^="#"]'));
+  var targets = [];
+  navLinks.forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el) targets.push({id: id, el: el, link: link});
+  });
+
+  if('IntersectionObserver' in window && targets.length){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var match = targets.find(function(t){ return t.el === entry.target; });
+        if(!match) return;
+        if(entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('active'); });
+          match.link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    targets.forEach(function(t){ navObserver.observe(t.el); });
+  }
+})();
+</script>
 
 </body>
 </html>
