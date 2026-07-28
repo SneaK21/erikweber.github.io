@@ -111,7 +111,7 @@ body.profile-open { overflow: hidden; }
   font-size: clamp(26px, 4vw, 32px); line-height: 1.2;
 }
 #profile-panel .p-sub {
-  margin-top: 14px; color: var(--p-ink-soft); font-size: 14.5px; max-width: 46ch;
+  margin-top: 14px; color: var(--p-ink-soft); font-size: 14.5px;
    text-align: justify; text-align-last: left;
 }
 
