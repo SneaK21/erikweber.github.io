@@ -62,17 +62,24 @@
     z-index:0;
   }
   header.hero{
-  position:relative; overflow:hidden;
-  min-height:640px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;   /* main axis is now vertical, so this pushes content to the bottom */
-  padding-bottom:70px;
+  position:relative;
+  height:640px;        /* fixed, not min-height — the photo's crop stays constant regardless of text length */
+  overflow:hidden;
   }
   header.hero .wrap{
-    position:relative;   /* no longer absolute */
+    position:absolute;
+    left:70px;
+    bottom:60px;
+    max-width:480px;      /* sized to the text, not the site's 920px column */
+    padding:0;             /* overrides the base .wrap's padding:0 28px */
     z-index:2;
   }
+  
+  @media (max-width:760px){
+  header.hero{ height:560px; }
+  header.hero .wrap{ left:24px; right:24px; max-width:none; bottom:40px; }
+  }
+  
   .hero-sub{
   margin-top:22px; max-width:34ch;      /* was 56ch — narrower so it stays off the water */
   color:var(--text-muted); font-size:16.5px;
