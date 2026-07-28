@@ -64,8 +64,14 @@
   header.hero{
   position:relative; overflow:hidden;
   min-height:640px;
-  display:flex; align-items:flex-end;   /* anchors text to the bottom of the photo */
-  padding:60px 0 70px;
+  }
+  header.hero .wrap{
+    position:absolute;
+    left:0; right:0; bottom:70px;
+    margin:0 auto;
+    max-width:920px;
+    padding:0 28px;
+    z-index:2;
   }
   .hero-sub{
   margin-top:22px; max-width:34ch;      /* was 56ch — narrower so it stays off the water */
@@ -75,8 +81,6 @@
   left:-160px; top:auto; bottom:-40px;  /* moved down to sit behind the lower text block */
   width:640px; height:560px;
   }
-  header.hero .wrap{ position:relative; z-index:2; }
-  
   header.hero h1.display,
   header.hero .hero-sub,
   header.hero .hero-meta,
