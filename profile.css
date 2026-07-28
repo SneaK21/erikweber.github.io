@@ -74,6 +74,20 @@ body.profile-open { overflow: hidden; }
   border-color: #D8A73D;
   color: #EFCB78;
 }
+.icon-link {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(216, 167, 61, 0.55);
+  color: #D8A73D;
+  background: transparent;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.icon-link:hover, .icon-link:focus-visible {
+  background: rgba(216, 167, 61, 0.12);
+  border-color: #D8A73D;
+  color: #EFCB78;
+}
+.icon-link svg { width: 16px; height: 16px; }
 
 /* ---------- panel chrome ---------- */
 #profile-panel .p-inner { padding: 40px 34px 60px; }
