@@ -6,6 +6,7 @@
 <title>Erik Weber — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="profile.css">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -198,6 +199,7 @@
       <a href="#note-05">05</a>
       <a href="#note-06">06</a>
       <a href="#contact">Contact</a>
+      <button type="button" id="profile-toggle" class="profile-btn">Profile Summary</button>
     </div>
   </div>
 </nav>
@@ -561,6 +563,107 @@
   }
 })();
 </script>
+<div id="profile-overlay"></div>
+<aside id="profile-panel" aria-hidden="true" aria-label="Profile summary">
+  <div class="p-inner">
+    <div class="p-topline">
+      <div class="p-eyebrow">Profile Summary</div>
+      <button type="button" id="profile-close" class="p-close" aria-label="Close profile summary">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+          <line x1="3" y1="3" x2="13" y2="13"></line>
+          <line x1="13" y1="3" x2="3" y2="13"></line>
+        </svg>
+      </button>
+    </div>
 
+    <h2 class="p-title">How I actually think and work</h2>
+    <p class="p-sub">Two independent cognitive and behavioural assessments taken during recruitment processes in 2026 &mdash; BrainsFirst's NeurOlympics brain-based games and Equalture's game-based platform. Together they sketch a few things a CV doesn't.</p>
+
+  <!-- ---------------- Working style (Equalture) ---------------- -->
+    <div class="p-section">
+      <div class="p-section-head"><span>Working style</span><span class="src">Equalture &middot; assessment</span></div>
+
+      <div class="p-group-label">Cognitive traits</div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Learning ability / working memory</span><span class="trait-badge">High capacity</span></div>
+        <div class="trait-track cog"><div class="trait-fill" style="width:90%"></div><div class="trait-marker" style="left:90%"></div></div>
+        <div class="trait-scale"><span>Low capacity</span><span>High capacity</span></div>
+        <p class="trait-note">Particularly good at learning new things with planned goals; handles large amounts of information at once.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Cognitive flexibility</span><span class="trait-badge">Somewhat flexible</span></div>
+        <div class="trait-track cog"><div class="trait-fill" style="width:50%"></div><div class="trait-marker" style="left:50%"></div></div>
+        <div class="trait-scale"><span>Routined</span><span>Flexible</span></div>
+        <p class="trait-note">Adapts thoughts and behaviour to new environments; tolerant of change and multiple perspectives.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Problem-solving ability</span><span class="trait-badge">High</span></div>
+        <div class="trait-track cog"><div class="trait-fill" style="width:90%"></div><div class="trait-marker" style="left:90%"></div></div>
+        <div class="trait-scale"><span>Low</span><span>High</span></div>
+        <p class="trait-note">Identifies problems and implements the right strategy; may lose motivation without regular challenge.</p>
+      </div>
+
+      <div class="p-group-label">Behavioural traits</div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Problem-solving style</span><span class="trait-badge">Somewhat intuitive</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:30%"></div><div class="trait-marker" style="left:30%"></div></div>
+        <div class="trait-scale"><span>Very intuitive</span><span>Very systematic</span></div>
+        <p class="trait-note">Trusts instinct and trial-and-error; strong with ill-defined problems, quick to pivot.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Speed-accuracy tradeoff</span><span class="trait-badge">Speed-inclined</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:30%"></div><div class="trait-marker" style="left:30%"></div></div>
+        <div class="trait-scale"><span>Strongly speed</span><span>Strongly accuracy</span></div>
+        <p class="trait-note">Gets a lot done quickly and recovers fast from interruptions; trades off some detail focus.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Feedback handling</span><span class="trait-badge">Fair</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:10%"></div><div class="trait-marker" style="left:10%"></div></div>
+        <div class="trait-scale"><span>Fair</span><span>Exceptional</span></div>
+        <p class="trait-note">Listens and shows appreciation for feedback; benefits from more structure around critical feedback.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Information sharing</span><span class="trait-badge">Excellent</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:70%"></div><div class="trait-marker" style="left:70%"></div></div>
+        <div class="trait-scale"><span>Fair</span><span>Exceptional</span></div>
+        <p class="trait-note">Points people to the right sources and works well across expertise levels.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Tolerance for mistakes</span><span class="trait-badge">Good</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:50%"></div><div class="trait-marker" style="left:50%"></div></div>
+        <div class="trait-scale"><span>Fair</span><span>Exceptional</span></div>
+        <p class="trait-note">Delays judgement on others' mistakes and focuses on limiting the damage.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Team support</span><span class="trait-badge">Exceptional</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:90%"></div><div class="trait-marker" style="left:90%"></div></div>
+        <div class="trait-scale"><span>Fair</span><span>Exceptional</span></div>
+        <p class="trait-note">Actively seeks out and credits diverse perspectives; a natural at making people feel heard.</p>
+      </div>
+
+      <div class="trait">
+        <div class="trait-head"><span class="trait-name">Ownership</span><span class="trait-badge">Exceptional</span></div>
+        <div class="trait-track"><div class="trait-fill" style="width:90%"></div><div class="trait-marker" style="left:90%"></div></div>
+        <div class="trait-scale"><span>Fair</span><span>Exceptional</span></div>
+        <p class="trait-note">Strong sense of responsibility and initiative, backed by high confidence in his own ability.</p>
+      </div>
+    </div>
+
+    <div class="p-footer">
+      Full assessment reports available on request &mdash; <a href="mailto:erikweber03@gmail.com">erikweber03@gmail.com</a>
+    </div>
+  </div>
+</aside>
+
+<script src="profile.js" defer></script>
 </body>
 </html>
