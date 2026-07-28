@@ -19,6 +19,7 @@
   --p-line-strong: rgba(33, 28, 21, 0.32);
   --p-rust: #B84E2E;
   --p-ochre: #93702E;
+  --p-navy: #1D2E4F;
   --p-serif: 'Newsreader', Georgia, serif;
   --p-mono: 'JetBrains Mono', ui-monospace, monospace;
   --p-sans: 'Inter', system-ui, sans-serif;
@@ -148,8 +149,8 @@ body.profile-open { overflow: hidden; }
 
 /* ---------- trait bars (Equalture) ---------- */
 .p-group-label {
-  font-family: var(--p-mono); font-size: 10.5px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--p-ochre); margin: 26px 0 14px;
+  font-family: var(--p-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--p-navy); margin: 26px 0 14px;
 }
 .p-group-label:first-child { margin-top: 0; }
 
