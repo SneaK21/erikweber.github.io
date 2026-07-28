@@ -1,0 +1,186 @@
+/* =========================================================
+   PROFILE SUMMARY PANEL
+   Deliberately a different register than the main site:
+   the portfolio reads like a dark research note / ticker tape,
+   this reads like a warm, paper "personal dossier" - same
+   typefaces (Newsreader / JetBrains Mono / Inter) so it still
+   feels authored by the same person, different palette so it
+   never gets mistaken for another project card.
+   ========================================================= */
+
+#profile-panel, #profile-panel * { box-sizing: border-box; }
+
+#profile-panel {
+  --p-cream: #F4EFE3;
+  --p-cream-2: #EAE2CE;
+  --p-ink: #211C15;
+  --p-ink-soft: #6B6153;
+  --p-line: rgba(33, 28, 21, 0.14);
+  --p-line-strong: rgba(33, 28, 21, 0.32);
+  --p-rust: #B84E2E;
+  --p-ochre: #93702E;
+  --p-serif: 'Newsreader', Georgia, serif;
+  --p-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --p-sans: 'Inter', system-ui, sans-serif;
+
+  position: fixed;
+  top: 0; right: 0;
+  height: 100vh; height: 100dvh;
+  width: min(560px, 100vw);
+  background: var(--p-cream);
+  color: var(--p-ink);
+  font-family: var(--p-sans);
+  line-height: 1.55;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-left: 1px solid var(--p-line-strong);
+  box-shadow: -24px 0 60px rgba(10, 8, 5, 0.35);
+  transform: translateX(100%);
+  transition: transform 340ms cubic-bezier(.4,0,.2,1);
+  z-index: 91;
+}
+
+body.profile-open #profile-panel { transform: translateX(0); }
+
+#profile-overlay {
+  position: fixed; inset: 0;
+  background: rgba(16, 19, 26, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 280ms ease;
+  z-index: 90;
+}
+
+body.profile-open #profile-overlay { opacity: 1; visibility: visible; }
+body.profile-open { overflow: hidden; }
+
+/* ---------- toggle button (lives in main nav) ---------- */
+.profile-btn {
+  font-family: var(--p-mono, 'JetBrains Mono', monospace);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: #D8A73D;
+  background: transparent;
+  border: 1px solid rgba(216, 167, 61, 0.55);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.profile-btn:hover, .profile-btn:focus-visible {
+  background: rgba(216, 167, 61, 0.12);
+  border-color: #D8A73D;
+  color: #EFCB78;
+}
+
+/* ---------- panel chrome ---------- */
+#profile-panel .p-inner { padding: 40px 34px 60px; }
+
+#profile-panel .p-topline {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 30px;
+}
+#profile-panel .p-eyebrow {
+  font-family: var(--p-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--p-rust);
+  display: flex; align-items: center; gap: 9px;
+}
+#profile-panel .p-eyebrow::before {
+  content: ''; width: 18px; height: 1px; background: var(--p-rust);
+}
+.p-close {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--p-line-strong);
+  background: transparent; color: var(--p-ink);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+.p-close svg {
+  stroke: var(--p-ink); stroke-width: 1.6; stroke-linecap: round; fill: none;
+  transition: transform 200ms ease;
+}
+.p-close:hover, .p-close:focus-visible { background: var(--p-cream-2); }
+.p-close:hover svg, .p-close:focus-visible svg { transform: rotate(45deg); }
+
+#profile-panel h2.p-title {
+  font-family: var(--p-serif); font-weight: 500;
+  font-size: clamp(26px, 4vw, 32px); line-height: 1.2;
+}
+#profile-panel .p-sub {
+  margin-top: 14px; color: var(--p-ink-soft); font-size: 14.5px; max-width: 46ch;
+}
+
+#profile-panel .p-section { margin-top: 42px; }
+#profile-panel .p-section-head {
+  font-family: var(--p-mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--p-ink-soft);
+  border-bottom: 1px solid var(--p-line-strong);
+  padding-bottom: 9px; margin-bottom: 22px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+#profile-panel .p-section-head span.src { color: var(--p-line-strong); font-size: 10px; }
+
+/* ---------- spider chart ---------- */
+#profile-panel .spider-wrap { display: flex; justify-content: center; }
+#profile-panel svg#brain-spider { width: 100%; max-width: 420px; height: auto; }
+.spider-ring { fill: none; stroke: var(--p-line); stroke-width: 1; }
+.spider-spoke { stroke: var(--p-line); stroke-width: 1; }
+.spider-data { fill: rgba(184, 78, 46, 0.16); stroke: var(--p-rust); stroke-width: 2; stroke-linejoin: round; }
+.spider-dot { fill: var(--p-rust); stroke: var(--p-cream); stroke-width: 1.5; }
+.spider-label { font-family: var(--p-mono); font-size: 10px; fill: var(--p-ink-soft); }
+
+/* ---------- top skill medals ---------- */
+.p-medals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+.p-medal {
+  background: var(--p-cream-2); border: 1px solid var(--p-line);
+  border-radius: 4px; padding: 14px 12px; text-align: left;
+}
+.p-medal .rank {
+  font-family: var(--p-mono); font-size: 10px; letter-spacing: 0.06em;
+  color: var(--p-rust); text-transform: uppercase;
+}
+.p-medal .name { font-family: var(--p-serif); font-size: 16px; margin-top: 4px; }
+.p-medal .score { font-family: var(--p-mono); font-size: 11px; color: var(--p-ink-soft); margin-top: 3px; }
+@media (max-width: 480px) { .p-medals { grid-template-columns: 1fr; } }
+
+/* ---------- trait bars (Equalture) ---------- */
+.p-group-label {
+  font-family: var(--p-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--p-ochre); margin: 26px 0 14px;
+}
+.p-group-label:first-child { margin-top: 0; }
+
+.trait { margin-top: 22px; }
+.trait:first-child { margin-top: 0; }
+.trait-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.trait-name { font-size: 14.5px; font-weight: 600; }
+.trait-badge {
+  font-family: var(--p-mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px; border: 1px solid var(--p-line-strong); color: var(--p-ink-soft);
+  white-space: nowrap;
+}
+.trait-track { position: relative; height: 7px; background: var(--p-line); border-radius: 4px; margin: 12px 0 6px; }
+.trait-fill { position: absolute; top: 0; left: 0; height: 100%; border-radius: 4px; background: var(--p-rust); opacity: 0.3; }
+.trait-track.cog .trait-fill { background: var(--p-ochre); }
+.trait-marker {
+  position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--p-rust); transform: translate(-50%, -50%); box-shadow: 0 0 0 3px var(--p-cream);
+}
+.trait-track.cog .trait-marker { background: var(--p-ochre); }
+.trait-scale { display: flex; justify-content: space-between; font-family: var(--p-mono); font-size: 10px; color: var(--p-ink-soft); }
+.trait-note { margin-top: 8px; font-size: 13px; color: var(--p-ink-soft); max-width: 52ch; }
+
+/* ---------- footer ---------- */
+#profile-panel .p-footer {
+  margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--p-line-strong);
+  font-size: 12.5px; color: var(--p-ink-soft);
+}
+#profile-panel .p-footer a { color: var(--p-rust); text-decoration: none; }
+#profile-panel .p-footer a:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  #profile-panel, #profile-overlay, .p-close { transition: none; }
+}
