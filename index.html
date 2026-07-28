@@ -54,6 +54,24 @@
   .navlinks a:hover{color:var(--teal);}
 
   /* ---------- HERO ---------- */
+  .hero-bg{
+  position:absolute; inset:0;
+  background-image:url('hero-photo.jpg');
+  background-size:cover;
+  background-position:56% 50%;
+  z-index:0;
+  }
+  header.hero{ position:relative; padding:130px 0 100px; overflow:hidden; }
+  header.hero .wrap{ position:relative; z-index:2; }
+  header.hero h1.display, header.hero .hero-sub, header.hero .hero-meta, header.hero .hero-scroll{
+    text-shadow: 0 2px 10px rgba(0,0,0,0.75);
+  }
+  .hero-gold{ color:var(--gold); }
+  .hero-scroll{
+    display:block; margin-top:32px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold);
+  }
   header.hero{padding:76px 0 60px; border-bottom:1px solid var(--rule);}
   .hero-grid{
   display:grid; grid-template-columns:1.15fr 1fr; gap:48px; align-items:center;
@@ -235,14 +253,13 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1 class="display">Welcome to my <em>portfolio page</em></h1>
-      <p class="hero-sub">Here I present some of the projects I worked on during my studies. Feel free to scroll through my three group projects, a KPMG valuation case, and both my Bachelor's and Master's theses &mdash; full methodology, the data, and what actually came out of it, project by project.</p>
-      <div class="hero-meta">
-        <span>Erik Weber</span>
-        <span>Amsterdam / Bratislava</span>
-        <a href="mailto:erikweber03@gmail.com" class="icon-link icon-mail" aria-label="Email Erik Weber" title="erikweber03@gmail.com">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <h1 class="display">Erik Weber<br><span class="hero-gold">Portfolio</span></h1>
+    <p class="hero-sub">Welcome to my personal page. Here I present some of the projects I worked on during my studies. Feel free to scroll through my three group projects, a KPMG valuation case, and both my Bachelor's and Master's theses. Full methodology, the data, and what actually came out of it, project by project.</p>
+    <div class="hero-meta">
+      <span>Amsterdam / Bratislava</span>
+      <a href="mailto:erikweber03@gmail.com" class="icon-link icon-mail" aria-label="Email Erik Weber" title="erikweber03@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -255,13 +272,11 @@
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-      </div>
     </div>
-    <figure class="hero-photo">
-      <img src="hero.jpeg" alt="Erik Weber" loading="eager">
-    </figure>
+    <span class="hero-scroll">Scroll to explore ↓</span>
   </div>
 </header>
+  
 
 <!-- ================= NOTE 01 ================= -->
 <section class="note" id="note-01">
