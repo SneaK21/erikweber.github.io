@@ -112,6 +112,7 @@ body.profile-open { overflow: hidden; }
 }
 #profile-panel .p-sub {
   margin-top: 14px; color: var(--p-ink-soft); font-size: 14.5px; max-width: 46ch;
+   text-align: justify; text-align-last: left;
 }
 
 #profile-panel .p-section { margin-top: 42px; }
