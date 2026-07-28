@@ -87,6 +87,7 @@ body.profile-open { overflow: hidden; }
   border-color: #D8A73D;
   color: #EFCB78;
 }
+.icon-mail svg { transform: translate(-1px, 1.5px); }
 .icon-link svg { width: 16px; height: 16px; }
 
 /* ---------- panel chrome ---------- */
