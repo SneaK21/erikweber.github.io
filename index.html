@@ -67,12 +67,12 @@
   overflow:hidden;
   }
   header.hero .wrap{
-    position:absolute;
-    left:70px;
-    bottom:60px;
-    max-width:480px;      /* sized to the text, not the site's 920px column */
-    padding:0;             /* overrides the base .wrap's padding:0 28px */
-    z-index:2;
+  position:absolute;
+  left:70px;
+  bottom:60px;
+  max-width:480px;
+  padding:0;
+  z-index:2;
   }
   
   @media (max-width:760px){
@@ -86,9 +86,11 @@
   text-align:justify;
   text-align-last:left;
   }
-  .hero-glow{
-  left:-160px; top:auto; bottom:-40px;  /* moved down to sit behind the lower text block */
-  width:640px; height:560px;
+  .hero-scrim{
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, rgba(16,19,26,0.85) 0%, rgba(16,19,26,0.55) 25%, rgba(16,19,26,0.2) 45%, rgba(16,19,26,0) 65%);
+  z-index:1;
+  pointer-events:none;
   }
   header.hero h1.display,
   header.hero .hero-sub,
@@ -99,6 +101,7 @@
       0 2px 4px rgba(0,0,0,0.85),
       0 6px 16px rgba(0,0,0,0.55);
   }
+
   
   h1.display{
     font-family:var(--serif); font-weight:600; font-size:clamp(34px,5.4vw,54px);
@@ -272,7 +275,7 @@
 
 <header class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
+  <div class="hero-scrim"></div>
   <div class="wrap">
     <h1 class="display">Erik Weber<br><span class="hero-gold">Portfolio</span></h1>
     <p class="hero-sub">Welcome to my personal page. Here I present some of the projects I worked on during my studies. Feel free to scroll through my three group projects, a KPMG valuation case, and both my Bachelor's and Master's theses. Full methodology, the data, and what actually came out of it, project by project.</p>
