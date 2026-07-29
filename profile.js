@@ -131,7 +131,6 @@
   }
 })();
 
-<script>
 (function(){
   var btn = document.getElementById('skills-toggle');
   var closeBtn = document.getElementById('skills-close');
@@ -144,4 +143,3 @@
   overlay.addEventListener('click', close);
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
 })();
-</script>
