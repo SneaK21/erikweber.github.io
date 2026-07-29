@@ -130,3 +130,18 @@
     svg.dataset.built = "true";
   }
 })();
+
+<script>
+(function(){
+  var btn = document.getElementById('skills-toggle');
+  var closeBtn = document.getElementById('skills-close');
+  var overlay = document.getElementById('skills-overlay');
+  if(!btn) return;
+  function open(){ document.body.classList.add('skills-open'); }
+  function close(){ document.body.classList.remove('skills-open'); }
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
